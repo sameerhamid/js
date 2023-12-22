@@ -1,53 +1,36 @@
 // singleton
-// Object.create()
 
-// object litrals
+// object literals
 
 
-const mySym = Symbol('key1')
+const mySym = Symbol("key1")
 
-const userDetails={
-    id:1,
-    name:'sameer',
-    'full name':'sameer ahmad ahanger',
-    [mySym]:'myKey1',
-    age:20,
-    location:'wasoora',
-    email:'sameer@gmail.com',
-    isLoggedIn:false,
-    lastLoginDays:['Monday','Friday'],
-
+const jsUsr = {
+    name: 'Sameer',
+    age: 22,
+    [mySym]: "myKey1",
+    city: "New York",
+    email: "sameer@gmail.com",
+    isLogedIn: false,
+    lostLoginDays: ["Monday", "Saturday"],
+    greeting: function () {
+        console.log("welcome", this.name);
+    }
 }
 
-// console.log(userDetails.email);
-// console.log(userDetails["full name"]);
-// console.log(userDetails['email']);
-// console.log(userDetails[mySym]);
+console.log(jsUsr.name);
 
-// Object.freeze(userDetails)
+console.log(jsUsr["email"]);
+console.log(jsUsr[mySym]);
 
-// userDetails.email = 'sameer@google.com'
+jsUsr.email = "sameerhamid@gmail.com"
 
-userDetails.greetings = function(){
-    console.log('welcome user');
-}
+console.log(jsUsr);
 
-userDetails.greetingSec = function(){
-    console.log(`Hello user ${this.name}`);
-}
+Object.freeze(jsUsr)
 
-// userDetails.greetingSec = ()=>{
-//     console.log(`Hello user ${this.name}`); /*it will print undefined bcoz of the arrow function*/
-// }
-// const something =()=>{
-//     console.log('something');
-//     // return 1;
-// }
+jsUsr.age = 33
 
+console.log(jsUsr.age);
 
-// console.log(something());
-// console.log(userDetails.greetings());
-userDetails.greetings();
-
-userDetails.greetingSec()
-
+jsUsr.greeting()
